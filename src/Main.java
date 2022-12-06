@@ -122,16 +122,13 @@ public class Main {
     public static void task6() {
         System.out.println("\nЗадача 6");
         int[] arr = generateRandomArray();
-        int maxCost = 99_999;
-        int minCoast = 200_001;
-        for (int j : arr) {
-            if (j > maxCost) {
-                maxCost = j;
-            }
-        }
-        for (int i : arr) {
-            if (i < minCoast) {
-                minCoast = i;
+        int maxCost = arr[0];
+        int minCoast = arr[0];
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] > maxCost) {
+                maxCost = arr[i];
+            } else if (arr[i] < minCoast) {
+                minCoast = arr[i];
             }
         }
         System.out.println("Минимальная сумма трат за день составила " + minCoast + " рублей. Максимальная сумма трат за день составила " + maxCost + " рублей");
@@ -141,10 +138,10 @@ public class Main {
         System.out.println("\nЗадача 7");
         int[] arr = generateRandomArray();
         int sum = 0;
-        for (int i = 0; i < 30; i++) {
+        for (int i = 0; i < arr.length; i++) {
             sum = sum + arr[i];
         }
-        float sumMiddle = (float) sum / 30;
+        float sumMiddle = (float) sum / arr.length;
         System.out.println("Средняя сумма трат за месяц  " + sumMiddle + " рублей");
     }
 
@@ -156,5 +153,6 @@ public class Main {
         }
 
     }
-
 }
+
+
